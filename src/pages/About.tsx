@@ -14,7 +14,7 @@ export const About: React.FC = () => {
 
   const leadership = [
     {
-      name: 'Dr. James Mwangi',
+      name: 'Dr. Vanki Aravinda',
       position: 'Chief Executive Officer',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'With over 20 years in mining engineering, Dr. Mwangi leads our vision of sustainable mining excellence.',
@@ -136,7 +136,7 @@ export const About: React.FC = () => {
                 We're not just extracting minerals; we're building a better future for Tanzania and its people."
               </blockquote>
               <cite className="text-yellow-400 font-semibold">
-                - Dr. James Mwangi, Chief Executive Officer
+                - Dr. Vanki Aravinda, Chief Executive Officer
               </cite>
             </motion.div>
           </div>
