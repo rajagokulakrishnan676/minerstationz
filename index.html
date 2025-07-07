@@ -27,8 +27,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/minerstationz/assets/index-uiI7GQke.js"></script>
-    <link rel="stylesheet" crossorigin href="/minerstationz/assets/index-B5y7wtBY.css">
+    
+    <!-- Critical CSS for scroll prevention -->
+    <style>
+      html, body {
+        scroll-behavior: auto !important;
+        overflow-anchor: none;
+        scroll-top: 0 !important;
+        scroll-left: 0 !important;
+      }
+      
+      /* Prevent any element from causing auto-scroll */
+      * {
+        scroll-margin: 0 !important;
+        scroll-snap-margin: 0 !important;
+      }
+      
+      /* Ensure no focus-related scrolling */
+      *:focus {
+        scroll-margin: 0 !important;
+      }
+    </style>
+    
+    <!-- Immediate scroll prevention script -->
+    <script>
+      // Remove hash immediately
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      
+      // Disable scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      
+      // Force scroll to top
+      const forceTop = () => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      };
+      
+      forceTop();
+      
+      // Prevent any scroll events during load
+      let scrollBlocked = true;
+      const blockScroll = (e) => {
+        if (scrollBlocked) {
+          e.preventDefault();
+          forceTop();
+        }
+      };
+      
+      window.addEventListener('scroll', blockScroll, { passive: false });
+      
+      // Unblock scroll after page loads
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          scrollBlocked = false;
+          window.removeEventListener('scroll', blockScroll);
+          forceTop(); // Final scroll to top
+        }, 100);
+      });
+    </script>
+    <script type="module" crossorigin src="/minerstationz/assets/index-CFFOKalO.js"></script>
+    <link rel="stylesheet" crossorigin href="/minerstationz/assets/index-CHT0JcuA.css">
   </head>
   <body>
     <div id="root"></div>
